@@ -21,14 +21,17 @@ const memoizedGetQuote = () => {
     }
 }
 
+const getRandomFact = async () => {
+    const url = 'https://uselessfacts.jsph.pl/random.json?language=en';
+    const resp = await fetch(url);
+    const data = await resp.json();
+    
+    const auth = document.getElementById('author');
+    const quote = document.getElementById('quote');
 
-
-
-
-
-
-
-
+    quote.innerText = data.text;
+    auth.innerText = data.source;
+}
 
 
 
@@ -49,4 +52,4 @@ async function getQuote() {
 
 const btn = document.getElementById("getQuote");
 btn.addEventListener("click", memoizedGetQuote());
-onload = memoizedGetQuote();
+onload = getRandomFact;
