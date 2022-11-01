@@ -1,0 +1,25 @@
+html {
+    background-color: blueviolet;
+}
+
+body {
+    margin-top: 40px;
+    background-color: darkorchid;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#quote {
+    text-align: center;
+}
