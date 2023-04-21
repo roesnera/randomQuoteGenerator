@@ -1,3 +1,25 @@
+function fetchWithPromise() {
+    fetch('https://type.fit/api/quotes')
+    .then((resp)=> {
+        // console.log(resp);
+        return resp.json();
+    })
+    .then((data) => {
+        // console.log(data);
+        let randomIndex = Math.floor(Math.random() * data.length);
+        let element = data[randomIndex];
+        const quoteP = document.getElementById('quote');
+        const authH3 = document.querySelector('#author');
+        quoteP.innerHTML = element.text;
+        authH3.innerText = element.author;
+    })
+    .catch((err) => {
+        console.error(err);
+    });
+}
+
+
+
 // fetch the resource using fetch()
 async function fetchResource() {
     try {
@@ -22,4 +44,5 @@ async function fetchResource() {
 }
 
 let myButton = document.getElementById('getQuote');
-myButton.onclick = fetchResource;
+// myButton.onclick = fetchResource;
+myButton.onclick = fetchWithPromise;
